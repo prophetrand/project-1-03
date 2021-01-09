@@ -17,12 +17,6 @@ $(document).ready(function(){
     // });
   }
 
-  initMap();
-
-//   $("#map").on("click", function(event){
-//     console.log("Oh joy");
-//   });
-
   $("#map").on('mousedown', function (event) {
     $("#map").on('mouseup mousemove', function handler(event) {
       if (event.type === 'mouseup') {
@@ -33,4 +27,6 @@ $(document).ready(function(){
       $("#map").off('mouseup mousemove', handler);
     });
   });
+
+  initMap();
 });
