@@ -7,14 +7,14 @@ function initMap() {
     const country = { lat: 39.829, lng: -98.579 };
     // The map, centered on USA.
     const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
+    zoom: 4.1,
     center: country,
     });
     // The marker, positioned at central USA.
-    const marker = new google.maps.Marker({
-    position: country,
-    map: map,
-    });
+    // const marker = new google.maps.Marker({
+    // position: country,
+    // map: map,
+    // });
 }
 
 initMap();
