@@ -1,15 +1,12 @@
-// My GoogleMaps API Key: AIzaSyB7Ma6MevHTXC2RnuetQCcPM7LUnKvyeKA
-
-// Declaring map on the global scope so that it is not restricted to the local scope of initMap().
-var map;
-var marker;
-var markerCoord;
-
 $(document).ready(function(){
-  
+  // Declaring map on the global scope so that it is not restricted to the local scope of initMap().
+  var map;
+  var marker;
+  var markerCoord;
+
   // Function to create the interactive map and append it to the division with the ID of "map." This function is called by default when the page loads, at the bottom of this script.     
   function initMap() {
-    // The location of the continental United States, 39.82925222683178, -98.5790934619165
+    // The location of the center of the continental United States: 39.82925222683178, -98.5790934619165. Adjusted slightly in the value below for better appearance on the page.
     const country = { lat: 38.729, lng: -96.879 };
     // The map, centered on USA.
     map = new google.maps.Map(document.getElementById("map"), {
@@ -20,21 +17,23 @@ $(document).ready(function(){
     map.addListener('click', function(event) {
       placeMarker(event.latLng, map);
     });
-
-    function placeMarker(location, map) {
-      console.log("Fire!");
-      if (marker == null) {
-        marker = new google.maps.Marker({
-          position: location,
-          map: map
-        });
-      } else {
-        marker.setPosition(location);
-      }
-      // set variable markerCoord equal to the coordinates of the marker here.
-    }
-    
+  // initMap() function closes in the line below, and includes the generation of an event listener on the map. This proved necessary for the map event listener to function properly, or else an error would display that "map" is undefined. 
   }
+
+  function placeMarker(location, map) {
+    console.log("Fire!");
+    if (marker == null) {
+      marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        animation: google.maps.Animation.DROP
+      });
+    } else {
+      marker.setPosition(location);
+    }
+    // set variable markerCoord equal to the coordinates of the marker here.
+  }
+  
   initMap();
 });
 
