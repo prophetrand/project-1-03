@@ -1,15 +1,17 @@
 // My GoogleMaps API Key: AIzaSyB7Ma6MevHTXC2RnuetQCcPM7LUnKvyeKA
 
-$(document).ready(function(){
-  // Declaring map on the global scope so that it is not restricted to the local scope of initMap().
-  var map;
+// Declaring map on the global scope so that it is not restricted to the local scope of initMap().
+var map;
+var marker;
 
+$(document).ready(function(){
+  
   // Function to create the interactive map and append it to the division with the ID of "map." This function is called by default when the page loads, at the bottom of this script.     
   function initMap() {
     // The location of the continental United States, 39.82925222683178, -98.5790934619165
     const country = { lat: 38.729, lng: -96.879 };
     // The map, centered on USA.
-    const map = new google.maps.Map(document.getElementById("map"), {
+    map = new google.maps.Map(document.getElementById("map"), {
       zoom: 4.1,
       center: country,
     });
@@ -18,21 +20,19 @@ $(document).ready(function(){
     // position: country,
     // map: map,
     // });
-  }
+  
 
+  // Although "click," "mouseup," and "mousedown" resemble standard DOM events, in this case they are part of the Google Maps Javascript API. The API provides these mechanisms to support cross-browser  
   $("#map").on('mousedown', function (event) {
-    $("#map").on('mouseup mousemove', function handler(event) {
+    $("#map").on('mouseup mousemove', function newMark(event) {
       if (event.type === 'mouseup') {
-        console.log("Oh Joy");
+        console.log("Ah yes");
         // here is the tricky bit
-        const marker = new google.maps.Marker({
-            position: event.latLng, 
-            map: map
-        });
+        placeMarker(event.LatLng, map);
       } else {
         // When the map is dragged but not explicitly clicked at one location, nothing happens with respect to this event listener.
       }
-      $("#map").off('mouseup mousemove', handler);
+      $("#map").off('mouseup mousemove', newMark);
     });
   });
 
@@ -40,14 +40,14 @@ $(document).ready(function(){
   //   placeMarker(event.latLng, map);
   // });
 
-  // function placeMarker(position, map) {
-  //   var marker = new google.maps.Marker({
-  //       position: position,
-  //       map: map
-  //   });
-  //   map.panTo(position);
-  // }
-
+  function placeMarker(position, map) {
+    const marker = new google.maps.Marker({
+        position: position,
+        map: map
+    });
+    // map.panTo(position);
+  }
+}
   initMap();
 });
 
@@ -59,3 +59,5 @@ $(document).ready(function(){
 
 // https://stackoverflow.com/questions/15792655/add-marker-to-google-map-on-click
 // This one is for placing a pin at the clicked location's lat/lon
+// https://developers.google.com/maps/documentation/javascript/events#maps_event_simple-javascript
+// documentation in Google Maps API regarding this stuff. Look into Events and the Marker class for solutions.
