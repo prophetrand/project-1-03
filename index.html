@@ -13,11 +13,11 @@
     <div class="header">
         <h1>Find a Pet Application</h1>
     </div>
-
+<!-- placement of google maps-->
     <div class="main">
         <h2>Google Maps</h2>
         <div class="fakeimg" style="height:200px;">Map Goes Here</div>
-
+        <!-- city search -->
         <div class="container">
             <div class="row">
                 <div class ="col-4 bg-light">
@@ -31,28 +31,29 @@
                 </div>
             </div>
         </div>
-
+        <br>
+        <!-- cats or dogs input -->
         <div class="check">
             <label for="myCheck">Cats:</label> 
             <input type="checkbox" id="myCheck" onclick="myFunction()">
-
+        <br>
             <label for="myCheck">Dogs:</label> 
             <input type="checkbox" id="myCheck" onclick="myFunction()">
         </div>
-
-        <div style="padding-left:20px">
-            <div class="row">
-                <div class="col-sm-12">
-                    <br>
-                        <div class="card">
-                            <div class="card-header">
-                                <strong><i class="fa fa-table"></i>Results</strong>
-                            </div>
-                                <div class="card-body" id="article-section"></div>
-                        </div>
+<!-- row display search results -->
+        <div class="row">
+            <div class="col-sm-12">
+                <br>
+                <div class="card">
+                    <div clas="card-header">
+                        <strong><i class="fa fa-table"></i>Search Results</strong>
+                    </div>
+                    <div class="card-body" id="search-results"></div>
                 </div>
             </div>
         </div>
+
+
     </div>
 
     <script>
