@@ -3,40 +3,20 @@ body {
     margin: 0;
   }
 
-  .topnav {
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  .topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
+  .header {
+    padding: 60px;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .topnav-right {
-    float: right;
+    background: #333;
+    color: white;
+    font-size: 30px;
   }
 
+
   .fakeimg {
-    background-color: #aaa;
+background-color: #aaa;
     width: 100%;
     padding: 20px;
   }
-
-.check {
- float: center;
-}
-
 
   .main {   
     max-width: 500px;
