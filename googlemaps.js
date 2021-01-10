@@ -3,6 +3,7 @@
 // Declaring map on the global scope so that it is not restricted to the local scope of initMap().
 var map;
 var marker;
+var markerCoord;
 
 $(document).ready(function(){
   
@@ -30,7 +31,7 @@ $(document).ready(function(){
       } else {
         marker.setPosition(location);
       }
-      
+      // set variable markerCoord equal to the coordinates of the marker here.
     }
     
   }
