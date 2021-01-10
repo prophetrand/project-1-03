@@ -1,8 +1,8 @@
 // My GoogleMaps API Key: AIzaSyB7Ma6MevHTXC2RnuetQCcPM7LUnKvyeKA
 
 // Declaring map on the global scope so that it is not restricted to the local scope of initMap().
-let map;
-let marker;
+var map;
+var marker;
 
 $(document).ready(function(){
   
@@ -16,31 +16,21 @@ $(document).ready(function(){
       center: country,
     });
 
-
-    // // Although "click," "mouseup," and "mousedown" resemble standard DOM events, in this case they are part of the Google Maps Javascript API. The API provides these mechanisms to support cross-browser  
-    // $("#map").on('mousedown', function (event) {
-    //   $("#map").on('mouseup mousemove', function newMark(event) {
-    //     if (event.type === 'mouseup') {
-    //       console.log("Ah yes");
-    //       // here is the tricky bit
-    //       placeMarker(event.LatLng, map);
-    //     } else {
-    //       // When the map is dragged but not explicitly clicked at one location, nothing happens with respect to this event listener.
-    //     }
-    //     $("#map").off('mouseup mousemove', newMark);
-    //   });
-    // });
-
     map.addListener('click', function(event) {
       placeMarker(event.latLng, map);
     });
 
     function placeMarker(location, map) {
       console.log("Fire!");
-      const marker = new google.maps.Marker({
+      if (marker == null) {
+        marker = new google.maps.Marker({
           position: location,
           map: map
-      });
+        });
+      } else {
+        marker.setPosition(location);
+      }
+      
     }
     
   }
