@@ -11,5 +11,8 @@
     font-weight: bold;
 }
 h1 {
-    text-align: center;
+    text-align: left;
+    color: #e8e8e8;
+    background-color: #52057b;
+    padding: 1rem;
 }
