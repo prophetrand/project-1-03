@@ -41,8 +41,16 @@ $(document).ready(function(){
     } else {
       marker.setPosition(location);
     }
-    console.log(marker.getPosition());
-    // set variable markerCoord equal to the coordinates of the marker here. Can also run reverse Geocoding AJAX request here most likely.
+    
+    var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + marker.getPosition().toUrlValue() + "&result_type=locality&key=AIzaSyB7Ma6MevHTXC2RnuetQCcPM7LUnKvyeKA"
+    console.log(queryURL);
+    
+    // $.ajax({
+    //   url: queryURL,
+    //   method: "GET"
+    // }).then(function(response){
+
+    // });
   }
 
   $("#search-go").on("click", function(){
