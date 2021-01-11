@@ -17,8 +17,9 @@ function test() {
 
 			// Here is where we handle the response we got back from Last FM
 			success: function(response) {
+				console.log('Oh Sh!t there is a response! Look Down There:');
 				console.log(response);
-				console.log('I must be getting a response'); 
+				 
 			}
 		});
 	
