@@ -10,18 +10,8 @@ $(document).ready(function(){
     const country = { lat: 38.729, lng: -96.879 };
     // The map, centered on USA.
     map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 4.1,
-      center: country,
-      restriction: {
-        latLngBounds: {
-          east: -66.9513812,
-          north: 49.3457868,
-          south: 24.7433195,
-          west: -124.7844079
-        },
-        strictBounds: false
-      }
-      // The restriction key above limits the map's viewport to the given coordinates, which equal an area slightly larger than the continental United States. The user will be unable to pan the map or zoom out beyond the given bounds, but the user can still zoom in and pan the map inside those coordinates.
+      zoom: 2,
+      center: country
     });
 
     map.addListener('click', function(event) {
@@ -42,15 +32,15 @@ $(document).ready(function(){
       marker.setPosition(location);
     }
     
-    var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + marker.getPosition().toUrlValue() + "&result_type=locality&key=AIzaSyB7Ma6MevHTXC2RnuetQCcPM7LUnKvyeKA"
+    var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + marker.getPosition().toUrlValue() + "&result_type=country&key=AIzaSyB7Ma6MevHTXC2RnuetQCcPM7LUnKvyeKA"
     console.log(queryURL);
     
-    // $.ajax({
-    //   url: queryURL,
-    //   method: "GET"
-    // }).then(function(response){
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response){
 
-    // });
+    });
   }
 
   $("#search-go").on("click", function(){
