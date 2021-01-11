@@ -1,0 +1,15 @@
+#map {
+    height: 400px;
+    width: 40%;
+    margin: auto;
+    border: 1px solid black;
+}
+
+#location-pop {
+    margin: auto;
+    font-size: large;
+    font-weight: bold;
+}
+h1 {
+    text-align: center;
+}
