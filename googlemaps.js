@@ -42,17 +42,23 @@ $(document).ready(function(){
       marker.setPosition(location);
     }
     console.log(marker.getPosition());
-    // set variable markerCoord equal to the coordinates of the marker here.
+    // set variable markerCoord equal to the coordinates of the marker here. Can also run reverse Geocoding AJAX request here most likely.
   }
+
+  $("#search-go").on("click", function(){
+    console.log("Search was clicked");
+    if (marker != null) {
+      console.log(marker.getPosition());
+    } else {
+      console.log("No marker present");
+    }
+  })
   
   initMap();
 });
 
 // https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple
 // Above link will be useful in making the Map pan to the location specified by the user in the text field. This may also serve as a soft-validation by moving the pin to the typed location, such that the typed location and the pin are not in conflict.
-
-// https://forums.asp.net/t/1942206.aspx?how+to+restrict+the+map+to+a+country+using+google+api+ 
-// Try to use one of the solutions above to restrict the map bounds to the continental United States.
 
 // https://stackoverflow.com/questions/15792655/add-marker-to-google-map-on-click
 // This one is for placing a pin at the clicked location's lat/lon
