@@ -49,7 +49,7 @@ $(document).ready(function(){
   $("#search-go").on("click", function(){
     console.log("Search was clicked");
     if (marker != null) {
-      console.log(marker.getPosition());
+      console.log(finder);
     } else {
       console.log("No marker present");
     }
