@@ -1,8 +1,10 @@
 $(document).ready(function(){
   // Declaring map on the global scope so that it is not restricted to the local scope of initMap().
   var map;
+  // The variable marker is declared with a null value to correspond to the if/else statement in the function placeMarker().
   var marker;
-  var markerCoord;
+  // The variable finder is declared in global scope so that once its value is changed by the AJAX function, it can be passed to 
+  var finder;
 
   // Function to create the interactive map and append it to the division with the ID of "map." This function is called by default when the page loads, at the bottom of this script.     
   function initMap() {
@@ -21,7 +23,6 @@ $(document).ready(function(){
   }
 
   function placeMarker(location, map) {
-    console.log("Fire!");
     if (marker == null) {
       marker = new google.maps.Marker({
         position: location,
@@ -39,10 +40,12 @@ $(document).ready(function(){
       url: queryURL,
       method: "GET"
     }).then(function(response){
-
+      finder = response.results[0].formatted_address;
+      console.log(finder);
     });
   }
 
+  // The event listener and function below CAN be edited. Currently serves as a placeholder and targets the button in the HTML with the ID of "search-go." Feel free to change this as well.
   $("#search-go").on("click", function(){
     console.log("Search was clicked");
     if (marker != null) {
@@ -57,10 +60,3 @@ $(document).ready(function(){
 
 // https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple
 // Above link will be useful in making the Map pan to the location specified by the user in the text field. This may also serve as a soft-validation by moving the pin to the typed location, such that the typed location and the pin are not in conflict.
-
-// https://stackoverflow.com/questions/15792655/add-marker-to-google-map-on-click
-// This one is for placing a pin at the clicked location's lat/lon
-// https://developers.google.com/maps/documentation/javascript/events#maps_event_simple-javascript
-// documentation in Google Maps API regarding this stuff. Look into Events and the Marker class for solutions.
-// https://medium.com/@letian1997/click-javascript-google-map-add-draggable-markers-polyline-b834dd5762b2
-// hope this saves me
