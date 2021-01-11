@@ -4,7 +4,7 @@
 // Registered to: gcvarela21
 
 var apiKey = '6b9c504e4c3ebdbd387620fe00865255';
-var url ='http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=6b9c504e4c3ebdbd387620fe00865255';
+var url ='http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=spain&limit=10&api_key=6b9c504e4c3ebdbd387620fe00865255';
 
 console.log("your js file is active");
 
