@@ -49,6 +49,7 @@ $(document).ready(function(){
     if (marker != null) {
       console.log(finder);
     } else {
+      // Append text to page that says a location has to be chosen.
       console.log("No marker present");
     }
   })
