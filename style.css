@@ -12,6 +12,10 @@ h1 {
     padding: 1rem;
 }
 
+h3 {
+  text-align: center;
+}
+
 #place-check {
   color: red;
 }
