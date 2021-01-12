@@ -51,7 +51,7 @@ $(document).ready(function(){
       $("#dump-viewer").empty();
       $("#place-check").empty();
       $.ajax({
-        url: 'http://ws.audioscrobbler.com/2.0/?method=geo.getTopartists&country=' + finder + '&api_key=6b9c504e4c3ebdbd387620fe00865255&limit=10&format=json',
+        url: 'https://ws.audioscrobbler.com/2.0/?method=geo.getTopartists&country=' + finder + '&api_key=6b9c504e4c3ebdbd387620fe00865255&limit=10&format=json',
   
         // Here is where we handle the response we got back from Last FM
         success: function(response) {
