@@ -41,15 +41,13 @@ $(document).ready(function(){
       method: "GET"
     }).then(function(response){
       finder = response.results[0].formatted_address;
-      console.log(finder);
     });
   }
 
   // The event listener and function below CAN be edited. Currently serves as a placeholder and targets the button in the HTML with the ID of "search-go." Feel free to change this as well.
   $("#search-go").on("click", function(){
-    console.log("Search was clicked");
     if (marker != null) {
-      console.log(marker.getPosition());
+      console.log(finder);
     } else {
       console.log("No marker present");
     }
