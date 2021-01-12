@@ -49,6 +49,7 @@ $(document).ready(function(){
     if (marker != null) {
       $("#result-country").text("Results for: " + finder);
       $("#dump-viewer").empty();
+      $("#place-check").empty();
       $.ajax({
         url: 'http://ws.audioscrobbler.com/2.0/?method=geo.getTopartists&country=' + finder + '&api_key=6b9c504e4c3ebdbd387620fe00865255&limit=10&format=json',
   
@@ -75,11 +76,11 @@ $(document).ready(function(){
           var urlFM4 = response.topartists.artist[3].url;
           var urlFM5 = response.topartists.artist[4].url;
           //// pointers to the top 5 artist provided images
-          var img1 = response.topartists.artist[0].image[4]["#text"];
-          var img2 = response.topartists.artist[1].image[4]["#text"];
-          var img3 = response.topartists.artist[2].image[4]["#text"];
-          var img4 = response.topartists.artist[3].image[4]["#text"];
-          var img5 = response.topartists.artist[4].image[4]["#text"];
+          var img1 = response.topartists.artist[0].image[2]["#text"];
+          var img2 = response.topartists.artist[1].image[2]["#text"];
+          var img3 = response.topartists.artist[2].image[2]["#text"];
+          var img4 = response.topartists.artist[3].image[2]["#text"];
+          var img5 = response.topartists.artist[4].image[2]["#text"];
   
           // verifing that the information is retrieved correctly
           console.log(topName1);
@@ -98,9 +99,6 @@ $(document).ready(function(){
     }
   })
   
-
-
-
   initMap();
 });
 
