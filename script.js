@@ -50,10 +50,13 @@ $(document).ready(function(){
       console.log(finder);
     } else {
       // Append text to page that says a location has to be chosen.
-      console.log("No marker present");
+      $("#place-check").text("Please choose a country on the map or in the search box.");
     }
   })
   
+
+
+
   initMap();
 });
 

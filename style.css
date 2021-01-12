@@ -12,15 +12,19 @@ h1 {
     padding: 1rem;
 }
 
+#place-check {
+  color: red;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #892cdc;
     opacity: 1; /* Firefox */
-  }
+}
   
   :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: #892cdc;
-  }
+}
   
   ::-ms-input-placeholder { /* Microsoft Edge */
     color: #892cdc;
-  }
+}
