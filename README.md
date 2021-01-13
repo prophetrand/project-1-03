@@ -41,7 +41,22 @@ _______________________________________________________________________
 lets find some code and put it below
 
 ```
-function( put some real code in here);
+<div id="map"></div><br/>
+
+  <div class="grid-container grid-x"> 
+    <div id="place-check"></div>
+    <form class="cell">
+      <input type="text" id="country" placeholder="Enter a Country name">
+    </form>
+    <button id="search-go" class="button large">Start Search</button>
+    
+  </div>
+  <br/>
+  <h3 id="result-country"></h3>
+  <br/>
+  
+  <div class="grid-container" id="dump-viewer">
+  </div>
 ```
 
 _______________________________________________________________________
@@ -53,24 +68,109 @@ write things here
 
 ```
 
-function( put some real code in here);
+function initMap() {
+    // The location of the center of the continental United States: 39.82925222683178, -98.5790934619165. Adjusted slightly in the value below for better appearance on the page.
+    const country = { lat: 38.729, lng: -96.879 };
+    // The map, centered on USA.
+    map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 2,
+      center: country
+    });
+
+    map.addListener('click', function(event) {
+      placeMarker(event.latLng, map);
+    });
+  // initMap() function closes in the line below, and includes the generation of an event listener on the map. This proved necessary for the map event listener to function properly, or else an error would display that "map" is undefined. 
+  }
 
 ```
 
 _______________________________________________________________________
+
 
 ​**Code Snippet**
 
 you can talk about the snippet here
 
 ```
-console.log( some code bro());
+function placeMarker(location, map) {
+    if (marker == null) {
+      marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        animation: google.maps.Animation.DROP
+      });
+    } else {
+      marker.setPosition(location);
+    }
 
 ```
 
 _______________________________________________________________________
 ​
+
+​**Code Snippet**
+
+you can talk about the snippet here
+
+```
+var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + marker.getPosition().toUrlValue() + "&result_type=country&key=AIzaSyB7Ma6MevHTXC2RnuetQCcPM7LUnKvyeKA"
+    console.log(queryURL);
+    
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response){
+      finder = response.results[0].formatted_address;
+    });
+  }
+
+```
+
+_______________________________________________________________________
 ​
+
+​**Code Snippet**
+
+you can talk about the snippet here
+
+```
+  $("#search-go").on("click", function(){
+    if (marker != null) {
+      $("#result-country").text("Results for: " + finder);
+      $("#dump-viewer").empty();
+      $("#place-check").empty();
+      $.ajax({
+        url: 'https://ws.audioscrobbler.com/2.0/?method=geo.getTopartists&country=' + finder + '&api_key=6b9c504e4c3ebdbd387620fe00865255&limit=10&format=json',
+  
+        // Here is where we handle the response we got back from Last FM
+        success: function(response) {
+          // display all the info from the object retrieved fromt the call
+          console.log(response);
+
+```
+
+_______________________________________________________________________
+**Code Snippet**
+
+you can talk about the snippet here
+
+```
+            //// pointers to the thw json data
+            var topName1 = response.topartists.artist[0].name;
+            var listeners1 = response.topartists.artist[0].listeners;
+            var urlFM1 = response.topartists.artist[0].url;
+            var img1 = response.topartists.artist[0].image[2]["#text"];
+
+           /// appending a <div> <img /> <a></a> <p></p> <p></p> </di>
+           /// with the data from the the api call inside the index.html div with the ID of dump-viewer
+            $("#dump-viewer").append(
+                "<div class='callout large primary' style= 'margin-left: 20'; 'margin-right: 5vw' ><img src=" + img1 +"/>","<a href='" + urlFM1 + "' target='_blank'>" + 'Check Out the Artist on Last FM!' + "</a>","<p>" + 'Artist Name: ' + topName1 + "</p>","<p>" + 'How Many Listeners: ' + listeners1 + "</p></div>"
+                )
+       
+```
+
+_______________________________________________________________________
 
 ### **Deployed Link**
 
