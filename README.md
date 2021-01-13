@@ -2,7 +2,6 @@
 
 Project-1-03
 
-summary
 write things  here
 
 Here is a visual:
