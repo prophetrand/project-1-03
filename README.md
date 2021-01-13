@@ -1,11 +1,26 @@
 # Global Pop
 
-Project-1-03
+## Project-1-03
 
-summary
-write things  here
+### Why Make It?
 
-Here is a visual:
+We began to tackle this project at a time when stress was high in our immediate and larger communities.
+
+For this reason, we wanted to build a web app that could bring some joy and optimism to the User.
+
+Music is loved by many and is a cornerstone of culture around the world, so we decided on an app that would help the User find more good stuff to listen to.
+
+Last.fm is an online music service that allows users to track and share their listening history.
+
+Last.fm consolidates their user data to examine broad popularity trends that we can access through their API.
+
+We wanted to harness this data in combination with Google Maps in a practical way we had not seen before.
+
+Feature Break Down:
+
+![Sample Page](https://github.com/prophetrand/project-1-03/blob/main/images/featureReason.png?raw=true)
+
+Here is a visual of this app's interaction:
 
 ![Sample Page](https://github.com/prophetrand/project-1-03/blob/main/images/Global_Pop.gif?raw=true)
 
