@@ -1,8 +1,8 @@
 # Global Pop
 
-## Project-1-03
+## Project-1-03 Summary
 
-### Why Make It?
+**Why Make It?**
 
 We began to tackle this project at a time when stress was high in our immediate and larger communities.
 
@@ -12,9 +12,11 @@ Music is loved by many and is a cornerstone of culture around the world, so we d
 
 Last.fm is an online music service that allows users to track and share their listening history.
 
-Last.fm consolidates their user data to examine broad popularity trends that we can access through their API.
+Last.fm consolidates their user data to examine broad popularity trends that we can access through their [API](https://www.last.fm/api).
 
 We wanted to harness this data in combination with Google Maps in a practical way we had not seen before.
+
+This was accomplished with [Jquery](https://api.jquery.com/), 3 APIs, and a [CSS grid system](https://get.foundation/sites/docs/installation.html).
 
 Feature Break Down:
 
@@ -33,8 +35,8 @@ Here is a visual of this app's interaction:
 ## **Built With**
 
 * [HTML](https"//w3schools.com)
-* [CSS](https"//w3schools.com)
-* [JQuery](https://getbootstrap.com/)
+* [CSS Grid System](https://get.foundation/sites/docs/installation.html)
+* [JQuery](https://api.jquery.com/)
 * [Google Maps](https://developers.google.com/maps/documentation)
 * [Google Geo Location](https://developers.google.com/maps/documentation/geolocation/overview)
 * [LastFM API](https://www.last.fm/api)
@@ -44,17 +46,11 @@ Here is a visual of this app's interaction:
 
 _______________________________________________________________________
 
-### **Summary**
+**Code Snippet**
 
-write things here
+Here we set up our page with various elements to hold our map, search input, and search button. The classes used are references to the [zurb foundation CSS](https://get.foundation/sites/docs/installation.html).
 
-_______________________________________________________________________
-​
-
-#### **Code Snippet**
-
-​
-lets find some code and put it below
+The IDs defined will be references for all the work being done behind the scenes in our script.js file.
 
 ```html
 <div id="map"></div><br/>
@@ -83,7 +79,8 @@ _______________________________________________________________________
 
 ​**Code Snippet**
 
-write things here
+When the page is loaded a zoomed out map is displayed.
+An event listener waits for the search button to be clicked to capure the information into the variable defined as country and move the map to that location and leave a marker for it on the map.
 ​
 
 ```javascript
@@ -113,7 +110,7 @@ _______________________________________________________________________
 
 ​**Code Snippet**
 
-you can talk about the snippet here
+An alternative to typing in a coutry in put is this fucntion that will fill the coutry name for the search where ever the pin is dropped. If the pin is dropped outside of any country boundery you will be prompted to drop the marker again.
 
 ```javascript
 function placeMarker(location, map) {
@@ -138,7 +135,11 @@ _______________________________________________________________________
 
 ​**Code Snippet**
 
-you can talk about the snippet here
+To get the country of origin using the dropped pin we have created a function that does a reverse geolocation search. The geo location api generally provides the lattitude and longitude of the pin that is dropped. The make this method human readable these cordinates and passed through another function to get us that readable information that is stored in the global variable to be passed on to our Last FM country search.
+
+An ajax call to the google maps api with thet lattitude and longitede passed into the url search request to retrive the joson object that will contain that country name.
+
+A variable: finder, wuill store that country name and be passed on to the Last FM Api ajax call.
 
 ```javascript
 var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + marker.getPosition().toUrlValue() + "&result_type=country&key=AIzaSyB7Ma6MevHTXC2RnuetQCcPM7LUnKvyeKA"
@@ -163,7 +164,15 @@ _______________________________________________________________________
 
 ​**Code Snippet**
 
-you can talk about the snippet here
+Here we can see a reference to the document oject with the ID of "search-go" is the search button the uses the [on method](https://www.w3schools.com/jquery/event_on.asp) that triggers the function. The function triggered will make the [ajax](https://www.w3schools.com/jquery/ajax_ajax.asp) call to the Last FM Api.
+
+The document object with the ID of "result-country" uses the variable finder that is at the global level to capture the country search from either the input or the map pin drop.
+
+The document objects that have the ID of "dump-viewer" and "place-check" use the [method of empty](https://www.w3schools.com/jquery/html_empty.asp) to clear the last search and appended objects.
+
+The ajax request uses the adress, includes the API Key, and sets parameters as defined in the Last FM [documentation](https://www.last.fm/api). The finder variable is then passes into that url to enable us to constantly change the country search with our inputs and search button or the dropped pin.
+
+With the [success](https://www.w3schools.com/jquery/ajax_ajax.asp) of the request another function is called to [console log](https://www.w3schools.com/jsref/met_console_log.asp) that object.
 
 ```javascript
   $("#search-go").on("click", function(){
@@ -193,15 +202,15 @@ _______________________________________________________________________
 
 **Code Snippet**
 
-In the script below variables are assigned to the specific information we wanted to pull from the Json object that was requested in our ajx call from the Last FM API.
+Continuing from that ajax call in the script below variables are assigned to the specific information we wanted to pull from the response (the Json object) that was requested from the Last FM API.
 
-Those variables are then passed into a div with the id "dump-viewer" found on our index html page using append to create all elements needed to hold the information we wanted displayed. 
+Those variables are then passed into a div with the id "dump-viewer" found on our index html page using [append](https://www.w3schools.com/jquery/html_append.asp) to create all elements needed to hold the information we wanted displayed.
 
 This process was interated 5 times to create a top 5 artists and info.
 
 With some research we discovered the Last FM Api is doing some sort of over haul and doesn't provided and actual iamges of the artists but instead has the image of the box with a star referenced in all the objects that provide image urls.
 
-With more time another api could be sourced to resolve this issue and can be looked at in the future.
+With more time another api could be sourced to resolve this issue and can be looked at in the future as well as creating an [array](https://api.jquery.com/jQuery.makeArray/) to interate through this repeated process for fine tuning.
 
 ```javascript
             //// pointers to the thw json data
