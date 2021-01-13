@@ -6,7 +6,7 @@ write things  here
 
 Here is a visual:
 
-![Sample Page](https://github.com/prophetrand/project-1-03/blob/main/Global_Pop.gif?raw=true)
+![Sample Page](https://github.com/prophetrand/project-1-03/images/blob/main/Global_Pop.gif?raw=true)
 
 * [This Site is live on GitHub until 01/15/2021](https://prophetrand.github.io/project-1-03/)
 * [See all Rand's repositories HERE](https://github.com/gcvarela21/)
