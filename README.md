@@ -56,7 +56,7 @@ _______________________________________________________________________
 ​
 lets find some code and put it below
 
-```
+```html
 <div id="map"></div><br/>
 
   <div class="grid-container grid-x"> 
@@ -74,6 +74,7 @@ lets find some code and put it below
   <div class="grid-container" id="dump-viewer">
   </div>
 ```
+
 Here is a visual:
 
 ![Sample Image](https://github.com/prophetrand/project-1-03/blob/main/images/global_pop_home.png?raw=true)
@@ -85,7 +86,7 @@ _______________________________________________________________________
 write things here
 ​
 
-```
+```javascript
 
 function initMap() {
     // The location of the center of the continental United States: 39.82925222683178, -98.5790934619165. Adjusted slightly in the value below for better appearance on the page.
@@ -110,12 +111,11 @@ Here is a visual:
 
 _______________________________________________________________________
 
-
 ​**Code Snippet**
 
 you can talk about the snippet here
 
-```
+```javascript
 function placeMarker(location, map) {
     if (marker == null) {
       marker = new google.maps.Marker({
@@ -140,7 +140,7 @@ _______________________________________________________________________
 
 you can talk about the snippet here
 
-```
+```javascript
 var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + marker.getPosition().toUrlValue() + "&result_type=country&key=AIzaSyB7Ma6MevHTXC2RnuetQCcPM7LUnKvyeKA"
     console.log(queryURL);
     
@@ -165,7 +165,7 @@ _______________________________________________________________________
 
 you can talk about the snippet here
 
-```
+```javascript
   $("#search-go").on("click", function(){
     if (marker != null) {
       $("#result-country").text("Results for: " + finder);
@@ -190,11 +190,12 @@ Here is a visual of the Last FM Json object:
 ![Sample Image](https://github.com/prophetrand/project-1-03/blob/main/images/console_log_response.png?raw=true)
 
 _______________________________________________________________________
+
 **Code Snippet**
 
-you can talk about the snippet here
+you can talk about the snippet down here
 
-```
+```javascript
             //// pointers to the thw json data
             var topName1 = response.topartists.artist[0].name;
             var listeners1 = response.topartists.artist[0].listeners;
