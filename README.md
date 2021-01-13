@@ -2,11 +2,12 @@
 
 Project-1-03
 
+summary
 write things  here
 
 Here is a visual:
 
-![Sample Page](https://github.com/prophetrand/project-1-03/images/blob/main/Global_Pop.gif?raw=true)
+![Sample Page](https://github.com/prophetrand/project-1-03/blob/main/images/Global_Pop.gif?raw=true)
 
 * [This Site is live on GitHub until 01/15/2021](https://prophetrand.github.io/project-1-03/)
 * [See all Rand's repositories HERE](https://github.com/gcvarela21/)
@@ -58,6 +59,9 @@ lets find some code and put it below
   <div class="grid-container" id="dump-viewer">
   </div>
 ```
+Here is a visual:
+
+![Sample Image](https://github.com/prophetrand/project-1-03/blob/main/images/global_pop_home.png?raw=true)
 
 _______________________________________________________________________
 
@@ -85,6 +89,10 @@ function initMap() {
 
 ```
 
+Here is a visual:
+
+![Sample Image](https://github.com/prophetrand/project-1-03/blob/main/images/map_init.png?raw=true)
+
 _______________________________________________________________________
 
 
@@ -106,6 +114,10 @@ function placeMarker(location, map) {
 
 ```
 
+Here is a visual:
+
+![Sample Image](https://github.com/prophetrand/project-1-03/blob/main/images/map_pin.png?raw=true)
+
 _______________________________________________________________________
 ​
 
@@ -126,6 +138,10 @@ var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + mar
   }
 
 ```
+
+Here is a visual:
+
+![Sample Image](https://github.com/prophetrand/project-1-03/blob/main/images/Geocoding_Response_Example.png?raw=true)
 
 _______________________________________________________________________
 ​
@@ -150,6 +166,14 @@ you can talk about the snippet here
 
 ```
 
+Here is a visual of a Null call:
+
+![Sample Image](https://github.com/prophetrand/project-1-03/blob/main/images/search_null.png?raw=true)
+
+Here is a visual of the Last FM Json object:
+
+![Sample Image](https://github.com/prophetrand/project-1-03/blob/main/images/console_log_response.png?raw=true)
+
 _______________________________________________________________________
 **Code Snippet**
 
@@ -169,6 +193,10 @@ you can talk about the snippet here
                 )
        
 ```
+
+Here is a visual of the appended divs look like:
+
+![Sample Image](https://github.com/prophetrand/project-1-03/blob/main/images/brazil_search.png?raw=true)
 
 _______________________________________________________________________
 
