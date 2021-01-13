@@ -193,7 +193,15 @@ _______________________________________________________________________
 
 **Code Snippet**
 
-you can talk about the snippet down here
+In the script below variables are assigned to the specific information we wanted to pull from the Json object that was requested in our ajx call from the Last FM API.
+
+Those variables are then passed into a div with the id "dump-viewer" found on our index html page using append to create all elements needed to hold the information we wanted displayed. 
+
+This process was interated 5 times to create a top 5 artists and info.
+
+With some research we discovered the Last FM Api is doing some sort of over haul and doesn't provided and actual iamges of the artists but instead has the image of the box with a star referenced in all the objects that provide image urls.
+
+With more time another api could be sourced to resolve this issue and can be looked at in the future.
 
 ```javascript
             //// pointers to the thw json data
